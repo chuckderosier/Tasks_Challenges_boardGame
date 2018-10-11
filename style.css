@@ -9,6 +9,7 @@ body {
     "nav main" 
 } 
 nav {
+    text-align: center;
     background-color: tan;
     margin-right: 10px;
 }

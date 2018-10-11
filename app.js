@@ -1,20 +1,20 @@
 $(function(){ // run jQuery first
     console.log("jQuery is working")
 })
-// create spaces with div and class
+// create spaces with divs and classes
 let createDivs
 let createInDivs
-for (let i = 0; i < 24; i++) {
+for (let i = 0; i < 24; i++) { // outer loop
     let createDivs = document.createElement(`div`)
     $(createDivs).addClass(`s` + [i])
     $(`main`).append(createDivs)
 }
-for (let j = 0; j < 12; j++) {
+for (let j = 0; j < 12; j++) { // inner loop
     let createInDivs = document.createElement(`div`)
     $(createInDivs).addClass(`is` + [j])
     $(`.inLoop`).append(createInDivs)
 }
- // spaces object an value
+ // spaces pair values
 spaces = {
     s0: {
         dice: 0,
@@ -197,6 +197,11 @@ spaces = {
         text: ``
     }
 }
+// nav bar items
+$('.rules').click(function() {
+    alert("—- The Goal — Get to the center of the board first and overcome the final challenge - die happily at the water and let the vultures pick your bones clean. To get there, you have to overcome Challenges to earn Points and accomplish Tasks to earn Die. — Start — Player with the next birthday goes first. Each player begins at Start. Each Die you earn gives you one die to roll for use in completing Tasks or overcoming Challenges, explained below. —- Movement —- On your turn, roll 1 die to move around the board. You can move clockwise or counter-clockwise on your turn, your choice. You only play the spot on which you land, i.e. if you roll a 4, move 4 spaces and play the space you’re on. Regardless of how many Dice you have, you still only roll 1 die to move around the board. —- Task Spaces —- blue spaces are 1 die, purple spaces are 2 dice, orange spaces are 3 dice —- When you land on a Task space the app will roll that number of dice as indicated the space. You roll a number all of your dice you’ve earned. If you roll lower than the total rolled for the Task you earn 1 Die when in outer loop or 2 Dice  when in inner loop to use on your next Task or Challenge. Obviously the more you Dice the harder it will be to accomplish Tasks – but the easier it will be to overcome challenges. Tie rolls are successes. —- Challenge Spaces —- red spaces are 1 die, pink spaces are 2 dice, brown spaces are 3 dice —- When you land on a Challenge space the app will roll that number of dice as indicated the space. You roll a number all of your dice you’ve earned. If you roll higher than the total rolled for the Challenge you earn 1 Point when in outer loop or 2 points when in inner loop. When you get 4 Points you may advance to the inner loop from the green space on the outer loop. When you get to 8 points you may enter the center space from the green space on the inner loop. Exact roll not necessary. You win.")
+}
+)
  // constructor for players
 // players = {
 //     constructor () {
