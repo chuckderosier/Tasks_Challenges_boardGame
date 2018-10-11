@@ -1,16 +1,13 @@
 $(function(){ // run jQuery first
     console.log("jQuery is working")
 })
-  create spaces with div and class
-let newDivs = []
-function createDivs () {
-    for (let i = 0; i < 36; i++) {
-        let newDivs = document.createElement(`div`)
-        $(newDivs).addClass(`s` + [i])
-    }
+// create spaces with div and class
+let createDivs
+for (let i = 0; i < 36; i++) {
+    let createDivs = document.createElement(`div`)
+    $(createDivs).addClass(`s` + [i])
+    $(`main`).append(createDivs)
 }
- // call div maker
-createDivs()
  // spaces object an value
 spaces = {
     s0: {
