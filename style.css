@@ -9,8 +9,23 @@ body {
     "nav main" 
 } 
 nav {
-    background-color: yellow;
+    background-color: tan;
     margin-right: 10px;
+}
+.greenSpace {
+    background-color: green;
+}
+.blueSpace {
+    background-color: blue;
+}
+.redSpace {
+    background-color: red;
+}
+.pinkSpace {
+    background-color: pink;
+}
+.purpleSpace {
+    background-color: purple;
 }
 main {
     height: 600px;
@@ -33,7 +48,7 @@ div{
     border: black solid 2px;
 }
 .s0 {
-    background-color: green;
+    background-color: white;
     grid-area: s0;
 }
 .s1 {
@@ -196,18 +211,13 @@ div{
     background-color: brown;
     grid-area: is11;
 }
-/* .s0, .s12 {
-    background-color: green;
+.path2 {
+    grid-row: span 2;
+    grid-column: span 2;
 }
-.s1, .s5, .s7 .s17, .s22 {
-    background-color: red;
+.win {
+    height: 60%;
+    width: 60%;
+    background-color: yellow;
+    margin: 15%;
 }
-.s2, .s6, .s18, .s19, .s23 {
-    background-color: blue;
-}
-.s3, .s8, .s10, .s13, .s15, .s20 {
-    background-color: pink; 
-}
-.s4, .s9, .s11, .s14, .s16, .s21  {
-    background-color: purple;
-} */

@@ -198,10 +198,10 @@ spaces = {
     }
 }
  // constructor for players
-players = {
-    constructor () {
-        this.name = ``;
-        this.color = ``;
-        this.shape = ``
-    }
-}
+// players = {
+//     constructor () {
+//         this.name = ``;
+//         this.color = ``;
+//         this.shape = ``
+//     }
+// }
