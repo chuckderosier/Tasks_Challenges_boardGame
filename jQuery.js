@@ -13,194 +13,184 @@ function createDivs () {
 createDivs()
  // spaces object an value
 spaces = {
-    s0 = {
+    s0: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s1 = {
+    s1: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s2 = {
+    s2: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s3 = {
+    s3: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s4 = {
+    s4: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s5 = {
+    s5: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s6 = {
+    s6: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s7 = {
+    s7: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s8 = {
+    s8: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s9 = {
+    s9: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s10 = {
+    s10: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s11 = {
+    s11: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s12 = {
+    s12: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s13 = {
+    s13: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s14 = {
+    s14: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s15 = {
+    s15: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s16 = {
+    s16: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s17 = {
+    s17: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s18 = {
+    s18: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s19 = {
+    s19: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s20 = {
+    s20: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s21 = {
+    s21: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s22 = {
+    s22: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s23 = {
+    s23: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
     s24: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s25 = {
+    s25: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s26 = {
+    s26: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
     s27: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s28 = {
+    s28: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s2 = {
+    s29: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s28 = {
+    s30: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s29 = {
+    s31: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s30 = {
+    s32: {
         dice: 0,
-        gainDice: func,
-        text: ``
-    },
-    s31 = {
-        dice: 0,
-        gainDice: func,
-        text: ``
-    },
-    s32 = {
-        dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
     s33: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s34 = {
+    s34: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     },
-    s35 = {
+    s35: {
         dice: 0,
-        gainDice: func,
+        gainDice: 0,
         text: ``
     }
 }
