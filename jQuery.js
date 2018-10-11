@@ -1,7 +1,7 @@
 $(function(){ // run jQuery first
     console.log("jQuery is working")
 })
-  // create spaces with div and class
+  create spaces with div and class
 let newDivs = []
 function createDivs () {
     for (let i = 0; i < 36; i++) {

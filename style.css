@@ -1,17 +1,19 @@
 body {
-    backgroundColor: black; 
+    background: black; 
+    min-height:100vh;
     display: grid;
     grid-template-columns: 1fr 1.25fr;
     grid-template-area:
     "nav main" 
-}
+} 
 nav {
-    backgroundColor: yellow;
+    background-color: yellow;
 }
 main {
-    backgroundColor: green;
-    grid-template-columns: 1fr*7;
-    grid-template-rows: 1fr*7;
-    grid-template-area:
-    ""
-}
+    background-color: green;
+    margin: 10px;
+    grid-template-columns: 1fr*15;
+    grid-template-rows: 1fr*15;
+    grid-template-areas:
+    "s18 s19 s20 s21 s22 s23 s0"
+} 
