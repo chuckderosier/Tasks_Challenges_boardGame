@@ -11,7 +11,7 @@ for (let i = 0; i < 24; i++) {
 }
 for (let j = 0; j < 12; j++) {
     let createInDivs = document.createElement(`div`)
-    $(createInDivs).addClass(`is` + j)
+    $(createInDivs).addClass(`is` + [j])
     $(`.inLoop`).append(createInDivs)
 }
  // spaces object an value

@@ -1,4 +1,6 @@
 body {
+    height: 600px;
+    width: 840px;
     background: black;
     min-height:100vh;
     display: grid;
@@ -12,11 +14,10 @@ nav {
 }
 main {
     height: 600px;
-    width: 460px;
-    background-color: brown;
+    width: 600px;
     display: grid;
-    grid-template-columns: repeat (7, 1fr);
-    grid-template-rows: repeat (7, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     grid-template-areas:
     "s18 s17 s16 s15 s14 s13 s12"
     "s19 path1 path1 path1 path1 path1 s11"
@@ -27,10 +28,9 @@ main {
     "s0 s1 s2 s3 s4 s5 s6"
 }
 div{
-    height: 20px;
-    width: 20px;
+    /* height: 14%;
+    width: 14%; */
     border: black solid 2px;
-
 }
 .s0 {
     background-color: green;
@@ -127,6 +127,73 @@ div{
 .s23 {
     background-color: blue;
     grid-area: s23;
+}
+.path1 {
+    grid-row: span 5;
+    grid-column: span 5;
+}
+.inLoop {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    padding: 20 px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-row: auto / auto;
+    grid-column: auto / auto;
+    grid-template-areas:
+    "is3 is2 is1 is0"
+    "is4 win win is11"
+    "is5 win win is10"
+    "is6 is7 is8 is9"
+}
+.is0 {
+    background-color: white;
+    grid-area: is0;
+}
+.is1 {
+    background-color: white;
+    grid-area: is1;
+}
+.is2 {
+    background-color: white;
+    grid-area: is2;
+}
+.is3 {
+    background-color: white;
+    grid-area: is3;
+}
+.is4 {
+    background-color: white;
+    grid-area: is4;
+}
+.is5 {
+    background-color: white;
+    grid-area: is5;
+}
+.is6 {
+    background-color: white;
+    grid-area: is6;
+}
+.is7 {
+    background-color: white;
+    grid-area: is7;
+}
+.is8 {
+    background-color: white;
+    grid-area: is8;
+}
+.is9 {
+    background-color: white;
+    grid-area: is9;
+}
+.is10 {
+    background-color: white;
+    grid-area: is10;
+}
+.is11 {
+    background-color: white;
+    grid-area: is11;
 }
 /* .s0, .s12 {
     background-color: green;
