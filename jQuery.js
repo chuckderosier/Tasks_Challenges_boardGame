@@ -204,3 +204,10 @@ spaces = { // spaces object an value
         text: ``
     }
 }
+players = {
+    constructor () { // constructor for players
+        this.name = ``;
+        this.color = `yellow`;
+        this.shape = ``
+    }
+}
