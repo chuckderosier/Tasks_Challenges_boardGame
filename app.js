@@ -4,7 +4,7 @@ $(function(){ // run jQuery first
 // create spaces with div and class
 let createDivs
 let createInDivs
-for (let i = 0; i < 23; i++) {
+for (let i = 0; i < 24; i++) {
     let createDivs = document.createElement(`div`)
     $(createDivs).addClass(`s` + [i])
     $(`main`).append(createDivs)
