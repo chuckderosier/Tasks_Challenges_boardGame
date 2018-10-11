@@ -197,17 +197,12 @@ spaces = { // spaces object an value
         dice: d0,
         gainDice: func,
         text: ``
-    },
-    .36: {
-        dice: d0,
-        gainDice: func,
-        text: ``
     }
 }
 players = {
     constructor () { // constructor for players
         this.name = ``;
-        this.color = `yellow`;
+        this.color = ``;
         this.shape = ``
     }
 }

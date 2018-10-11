@@ -1,6 +1,10 @@
 .body {
     display: grid;
-    grid-template-rows: 1fr*16;
-    grid-template-columns: 1fr*28;
-    
+    grid-template-columns: 1fr 1.25fr;
+    grid-template-area:
+    "nav main"  
+}
+.main {
+    grid-template-columns: 1fr*14;
+    grid-template-rows: 1fr*14;
 }
