@@ -51,14 +51,16 @@ nav {
     margin: 10px 0 10px 0;
 }
 .play1 {
-    height: 10px;
-    width: 10px;
+    height: 20px;
+    width: 20px;
+    margin: 5;
     background-color: black;
     border-radius: 10px;
 }
 .play2 {
-    height: 10px;
-    width: 10px;
+    height: 20px;
+    width: 20px;
+    margin: 5;
     background-color: black;
 }
 main {
@@ -79,104 +81,104 @@ main {
 div{
     border: black solid 2px;
 }
-.s0 {
+#s0 {
     background-color: white;
     grid-area: s0;
     content: "start";
 }
-.s1 {
+#s1 {
     background-color: red;
     grid-area: s1;
 }
-.s2 {
+#s2 {
     background-color: blue;
     grid-area: s2;
 }
-.s3 {
+#s3 {
     background-color: purple;
     grid-area: s3;
 }
-.s4 {
+#s4 {
     background-color: pink;
     grid-area: s4;
 }
-.s5 {
+#s5 {
     background-color: red;
     grid-area: s5;
 }
-.s6 {
+#s6 {
     background-color: blue;
     grid-area: s6;
 }
-.s7 {
+#s7 {
     background-color: red;
     grid-area: s7;
 }
-.s8 {
+#s8 {
     background-color: purple;
     grid-area: s8;
 }
-.s9 {
+#s9 {
     background-color: pink;
     grid-area: s9;
 }
-.s10 {
+#s10 {
     background-color: purple;
     grid-area: s10;
 }
-.s11 {
+#s11 {
     background-color: pink;
     grid-area: s11;
 }
-.s12 {
+#s12 {
     background-color: green;
     grid-area: s12;
 }
-.s13 {
+#s13 {
     background-color: purple;
     grid-area: s13;
 }
-.s14 {
+#s14 {
     background-color: pink;
     grid-area: s14;
 }
-.s15 {
+#s15 {
     background-color: purple;
     grid-area: s15;
 }
-.s16 {
+#s16 {
     background-color: pink;
     grid-area: s16;
 }
-.s17 {
+#s17 {
     background-color: red;
     grid-area: s17;
 }
-.s18 {
+#s18 {
     background-color: blue;
     grid-area: s18;
 }
-.s19 {
+#s19 {
     background-color: blue;
     grid-area: s19;
 }
-.s20 {
+#s20 {
     background-color: purple;
     grid-area: s20;
 }
-.s21 {
+#s21 {
     background-color: pink;
     grid-area: s21;
 }
-.s22 {
+#s22 {
     background-color: red;
     grid-area: s22;
 }
-.s23 {
+#s23 {
     background-color: blue;
     grid-area: s23;
 }
-.path1 {
+/* .path1 {
     grid-row: span 5;
     grid-column: span 5;
 }
@@ -195,8 +197,8 @@ div{
     "is4 win win is11"
     "is5 win win is10"
     "is6 is7 is8 is9"
-}
-.is0 {
+} */
+/* .is0 {
     background-color: green;
     grid-area: is0;
 }
@@ -253,4 +255,4 @@ div{
     width: 60%;
     background-color: yellow;
     margin: 15%;
-}
+} */
