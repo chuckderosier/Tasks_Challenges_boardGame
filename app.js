@@ -16,7 +16,7 @@ let rollNum = 0
 let createDivs
 let createInDivs
 let moveDist = 0
-for (let i = 0; i < 24; i++) { // outer loop
+for (let i = 1; i < 24; i++) { // outer loop
     let createDivs = document.createElement(`div`)
     $(createDivs).addClass([i])
     $(createDivs).attr('id', `s` + [i])
@@ -27,172 +27,172 @@ for (let i = 0; i < 24; i++) { // outer loop
 //     $(createInDivs).addClass([j])
 //     $(`.inLoop`).append(createInDivs)
 // }
-let player1 = $(`.s0`).append(`<div class="play1"></div>`)
-let player2  = $(`.s0`).append(`<div class="play2"></div>`)
+let player1 = $(`#s1`).append(`<div class="play1"></div>`)
+let player2  = $(`#s1`).append(`<div class="play2"></div>`)
  // spaces pair values
 spaces = {
-    s0: {
+    s1: {
         type: `free`,
         dice: computerDice = 0,
         gainDice: 0,
         gainPoints: addPoints = 1,
         text: ``
     },
-    s1: {
+    s2: {
         type: `c`,
         dice: computerDice = 1,
         gainDice: 0,
         gainPoints: addPoints = 1,
         text: ``
     },
-    s2: {
-        type: `t`,
-        dice: computerDice = 1,
-        gainDice: addDice = 1,
-        gainPoints: 0,
-        text: ``
-    },
     s3: {
         type: `t`,
-        dice: computerDice = 2,
+        dice: computerDice = 1,
         gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
     s4: {
-        type: `c`,
+        type: `t`,
         dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
     s5: {
         type: `c`,
-        dice: computerDice = 1,
-        gainDice: 0,
-        gainPoints: addPoints = 1,
+        dice: computerDice = 2,
+        gainDice: addpoints = 1,
+        gainPoints: 0,
         text: ``
     },
     s6: {
-        type: `t`,
-        dice: computerDice = 1,
-        gainDice: addDice = 1,
-        gainPoints: 0,
-        text: ``
-    },
-    s7: {
         type: `c`,
         dice: computerDice = 1,
         gainDice: 0,
         gainPoints: addPoints = 1,
         text: ``
     },
-    s8: {
+    s7: {
         type: `t`,
-        dice: computerDice = 2,
+        dice: computerDice = 1,
         gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
-    s9: {
+    s8: {
         type: `c`,
+        dice: computerDice = 1,
+        gainDice: 0,
+        gainPoints: addPoints = 1,
+        text: ``
+    },
+    s9: {
+        type: `t`,
         dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
     s10: {
-        type: `t`,
-        dice: computerDice = 2,
-        gainDice: addDice = 1,
-        gainPoints: 0,
-        text: ``
-    },
-    s11: {
         type: `c`,
         dice: computerDice = 2,
         gainDice: addpoints = 1,
         gainPoints: 0,
         text: ``
     },
+    s11: {
+        type: `t`,
+        dice: computerDice = 2,
+        gainDice: addDice = 1,
+        gainPoints: 0,
+        text: ``
+    },
     s12: {
+        type: `c`,
+        dice: computerDice = 2,
+        gainDice: addpoints = 1,
+        gainPoints: 0,
+        text: ``
+    },
+    s13: {
         type: `free`,
         dice: 0,
         gainDice: 0,
         gainPoints: 0,
         text: ``
     },
-    s13: {
+    s14: {
         type: `t`,
         dice: computerDice = 2,
         gainDice: addDice = 1,
-        gainPoints: 0,
-        text: ``
-    },
-    s14: {
-        type: `c`,
-        dice: computerDice = 2,
-        gainDice: addpoints = 1,
         gainPoints: 0,
         text: ``
     },
     s15: {
-        type: `t`,
+        type: `c`,
         dice: computerDice = 2,
-        gainDice: addDice = 1,
+        gainDice: addpoints = 1,
         gainPoints: 0,
         text: ``
     },
     s16: {
-        type: `c`,
+        type: `t`,
         dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
     s17: {
         type: `c`,
+        dice: computerDice = 2,
+        gainDice: addpoints = 1,
+        gainPoints: 0,
+        text: ``
+    },
+    s18: {
+        type: `c`,
         dice: computerDice = 1,
         gainDice: 0,
         gainPoints: addPoints = 1,
         text: ``
     },
-    s18: {
+    s19: {
         type: `t`,
         dice: computerDice = 1,
         gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
-    s19: {
+    s20: {
         type: `c`,
         dice: computerDice = 2,
         gainDice: addpoints = 1,
-        gainPoints: 0,
-        text: ``
-    },
-    s20: {
-        type: `t`,
-        dice: computerDice = 2,
-        gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
     s21: {
-        type: `c`,
+        type: `t`,
         dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
     s22: {
         type: `c`,
+        dice: computerDice = 2,
+        gainDice: addpoints = 1,
+        gainPoints: 0,
+        text: ``
+    },
+    s23: {
+        type: `c`,
         dice: computerDice = 1,
         gainDice: 0,
         gainPoints: addPoints = 1,
         text: ``
     },
-    s23: {
+    s24: {
         type: `t`,
         dice: computerDice = 1,
         gainDice: addDice = 1,
@@ -213,21 +213,29 @@ for (let k = player1Dice; k < player1Dice; k++) {
 for (let k = player2Dice; k < player2Dice; k++) {
     rollNum = Math.floor((Math.random() * 6) + 1)
 }
-// players turn
-if (player1Points < 10 || player2Points < 10) {
-    $(`.windowRoll`).text(`Player 1 turn`)
-    $(`.roll`).click(function() {
-        let moveDist = Math.floor((Math.random() * 6) + 1)
-    })
-    // $(`.counter`).click(function() {
-    //     $(`.play1`).
-    // })
-}
 // display players points and dice
 $(".dicePlayer1").text("Player 1 has " + player1Dice + " dice")
 $(".pointsPlayer1").text("Player 1 has " + player1Points + " points")
 $(".dicePlayer2").text("Player 1 has " + player2Dice + " dice")
 $(".pointsPlayer2").text("Player 1 has " + player2Points + " points")
+// players turn
+// if (player1Points < 10 || player2Points < 10) {
+//     $(`.windowRoll`).text(`Player 1 turn`)
+//     $(`.roll`).click(function() {
+//         let moveDist = Math.floor((Math.random() * 6) + 1)
+//     })
+
+//       });
+//     // if ($(moveDist + ))
+//     $(`.counter`).click(function() {
+//     })
+
+    // let spaceOn = $(`.play1`).parent().attr(`class`)
+    let spaceOn = $(`.play1`).parent().prop(`class`)
+    // let spaceOn =  Number($(`play1`).parent().attr(`id`))
+    // let spaceOn =  Number($(`play1`).parent().prop(`class`))
+    // parseInt(spaceOn)
+    console.log(spaceOn)
 // constructor for players
 // players = {
 //     constructor () {
