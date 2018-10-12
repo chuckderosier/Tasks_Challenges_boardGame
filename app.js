@@ -13,22 +13,18 @@ let addPoints = 0
 let addDice = 0
 let rollNum = 0
 let moveDist = 0
+let youClicked = 0
 // create spaces with divs and classes
 let createDivs
 let createInDivs
-for (let i = 1; i < 25; i++) { // outer loop
+for (let i = 1; i < 25; i++) {
     let createDivs = document.createElement(`div`)
     $(createDivs).addClass([i])
     $(createDivs).attr('id', `s` + [i])
     $(`main`).append(createDivs)
 }
-// for (let j = 0; j < 12; j++) { // inner loop
-//     let createInDivs = document.createElement(`div`)
-//     $(createInDivs).addClass([j])
-//     $(`.inLoop`).append(createInDivs)
-// }
-let player1 = $(`#s1`).append(`<div class="play1"></div>`)
-let player2 = $(`#s1`).append(`<div class="play2"></div>`)
+let player1 = $(`#s5`).append(`<div class="play1"></div>`)
+let player2 = $(`#s5`).append(`<div class="play2"></div>`)
 // spaces pair values
 spaces = {
     s1: {
@@ -54,14 +50,14 @@ spaces = {
     },
     s4: {
         type: `t`,
-        dice: computerDice = 2,
+        dice: 2,
         gainDice: addDice = 1,
         gainPoints: 0,
         text: ``
     },
     s5: {
         type: `c`,
-        dice: computerDice = 2,
+        dice: 2,
         gainDice: addpoints = 1,
         gainPoints: 0,
         text: ``
@@ -216,18 +212,15 @@ $(".pointsPlayer1").text("Player 1 has " + player1Points + " points")
 $(".dicePlayer2").text("Player 1 has " + player2Dice + " dice")
 $(".pointsPlayer2").text("Player 1 has " + player2Points + " points")
 // players turn
-
 if (player1Points < 10 || player2Points < 10) {
     $(`.windowRoll`).text(`Player 1 turn`)
     $(`.roll`).one(`click`, function () {
         moveDist = Math.floor((Math.random() * 6) + 1)
         $(`.windowRoll`).text(`You rolled a ` + moveDist)
         let spaceOn = $(`.play1`).parent().prop(`class`)
-        let youClicked = 0
         spaceOn = parseInt(spaceOn)
-        if (youClicked !== 0) {
+        if (youClicked == 0) {
             $(`.counter`).one(`click`, function () {
-                youClicked += 1
                 spaceOn += moveDist
                 if (spaceOn > 24) {
                     spaceOn = (24 - spaceOn) * -1
@@ -236,19 +229,30 @@ if (player1Points < 10 || player2Points < 10) {
                     $(`.play1`).appendTo(`.` + spaceOn)
                 }
             })
+            youClicked = youClicked + 1
         }
-        if (youClicked !== 0) {
+        if (youClicked == 0) {
             $(`.clock`).one(`click`, function () {
-                youClicked += 1
                 spaceOn -= moveDist
                 if (spaceOn > 0) {
                     $(`.play1`).appendTo(`.` + spaceOn)
                 } else {
                     spaceOn = (24 + spaceOn)
                     $(`.play1`).appendTo(`.` + spaceOn)
-                }
+                }    
             })
+            youClicked = youClicked + 1
         }
+        // if (youClicked == 1) {
+            let whereAm = document.querySelector(`.play1`).parentNode.id
+            console.log(whereAm)
+            let compDice = spaces[whereAm].dice
+            // let fuck = $(`.play1`).attr().parent.id
+            // console.log(fuck)
+            console.log(compDice)
+            // console.log(spaces.s5.dice)
+        // console.log(compDice)
+        // }
     })
 }
 
