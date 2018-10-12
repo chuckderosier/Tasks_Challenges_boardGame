@@ -221,15 +221,15 @@ if (player1Points < 10 || player2Points < 10) {
     $(`.windowRoll`).text(`Player 1 turn`)
     $(`.roll`).click(function() {
         moveDist = Math.floor((Math.random() * 6) + 1)
+        
         $(`.windowRoll`).text(`You rolled a ` + moveDist)
         let spaceOn = $(`.play1`).parent().prop(`class`)    
         spaceOn = parseInt(spaceOn)
-        // if ((moveDist + spaceOn) > 24) {
-        //     spaceOn = 24 - spaceOn
-        // }
+        if ((moveDist + spaceOn) > 24) {
+            spaceOn = 24 - spaceOn
+        }
         spaceOn += moveDist
-        console.log(spaceOn)
-        $(`.play1`).append(spaceOn)
+        $(`.play1`).appendTo(`.` + spaceOn)
     })
 }
 
