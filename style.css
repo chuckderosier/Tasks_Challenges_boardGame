@@ -20,18 +20,27 @@ nav {
     margin: 0 0 10px 0;
 }
 .greenSpace {
+    padding: 2px 0;
+    color: white;
     background-color: green;
 }
 .blueSpace {
+    padding: 2px 0;
+    color: white;
     background-color: blue;
 }
 .redSpace {
+    padding: 2px 0;
+    color: white;
     background-color: red;
 }
 .pinkSpace {
+    padding: 2px 0;
     background-color: pink;
 }
 .purpleSpace {
+    padding: 2px 0;
+    color: white;
     background-color: purple;
 }
 .dicePlayer1, .pointsPlayer1, .dicePlayer2, .pointsPlayer2 {
@@ -40,6 +49,17 @@ nav {
 }
 .roll {
     margin: 10px 0 10px 0;
+}
+.play1 {
+    height: 10px;
+    width: 10px;
+    background-color: black;
+    border-radius: 10px;
+}
+.play2 {
+    height: 10px;
+    width: 10px;
+    background-color: black;
 }
 main {
     height: 600px;
@@ -62,6 +82,7 @@ div{
 .s0 {
     background-color: white;
     grid-area: s0;
+    content: "start";
 }
 .s1 {
     background-color: red;
