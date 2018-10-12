@@ -23,8 +23,8 @@ for (let i = 1; i < 25; i++) {
     $(createDivs).attr('id', `s` + [i])
     $(`main`).append(createDivs)
 }
-let player1 = $(`#s5`).append(`<div class="play1"></div>`)
-let player2 = $(`#s5`).append(`<div class="play2"></div>`)
+let player1 = $(`#s1`).append(`<div class="play1"></div>`)
+let player2 = $(`#s1`).append(`<div class="play2"></div>`)
 // spaces pair values
 spaces = {
     s1: {
@@ -58,7 +58,7 @@ spaces = {
     s5: {
         type: `c`,
         dice: 2,
-        gainDice: addpoints = 1,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
@@ -243,16 +243,29 @@ if (player1Points < 10 || player2Points < 10) {
             })
             youClicked = youClicked + 1
         }
-        // if (youClicked == 1) {
+        if (youClicked == 1) {
             let whereAm = document.querySelector(`.play1`).parentNode.id
-            console.log(whereAm)
             let compDice = spaces[whereAm].dice
-            // let fuck = $(`.play1`).attr().parent.id
-            // console.log(fuck)
-            console.log(compDice)
-            // console.log(spaces.s5.dice)
-        // console.log(compDice)
-        // }
+            let compRoll = 0
+            let playerRoll = 0
+            $(`.battle`).one(`click`, function() {
+                for (c = compDice; c < compDice.length; c++) {
+                    compRoll = Math.floor((Math.random() * 6) + 1)   
+                }
+            $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
+                for (let p = player1Dice; p < player1Dice.length; p++) {
+                    playerRoll = Math.floor((Math.random() * 6) + 1)
+                }
+            $(`.battleWindowP`).text(`You rolled ` + playerRoll)
+            })
+            if (playerRoll => compRoll) {
+                playerPoints += spaces[whereAm].gainPoints
+                playerDice += spaces[wherAm].gainDice
+                $(`.results`).text(`You beat the roll!!`)
+            } else {
+                $(`.results`).text(`Try Again`)
+            }
+        }
     })
 }
 
