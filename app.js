@@ -213,7 +213,6 @@ for (let k = player1Dice; k < player1Dice; k++) {
 
 // players turn
 let whereAm = document.querySelector(`.play1`).parentNode.id
-// if (player1Points < 10 || player2Points < 10) {
 $(`.windowRoll`).text(`Player 1 turn`)
 $(`.roll`).one(`click`, function () {
     moveDist = dice
@@ -246,6 +245,7 @@ $(`.roll`).one(`click`, function () {
             whereAm = document.querySelector(`.play1`).parentNode.id
         })
     }
+    if (spaces[whereAm].type !== `free`) {
     $(`.battle`).one(`click`, function () {
         compDice = spaces[whereAm].dice
         compRoll = dice * compDice
@@ -253,26 +253,31 @@ $(`.roll`).one(`click`, function () {
         $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
         $(`.battleWindowP`).text(`You rolled ` + playerRoll)
     })
-    if (spaces[whereAm].type = `t`) {
-        if (playerRoll <= compRoll)
-            player1Dice += spaces[whereAm].gainDice
-        $(`.results`).text(`You succeeded!`)
-    } else {
-        $(`.results`).text(`Try Again`)
     }
-    if (spaces[whereAm].type = `c`) {
-        if (playerRoll => compRoll)
+    if (spaces[whereAm].type === `t`) {
+        if (playerRoll <= compRoll) {
+            player1Dice += spaces[whereAm].gainDice
+            $(`.results`).text(`You succeeded!`)
+        }
+        if (playerRoll > compRoll) {
+            $(`.results`).text(`Try Again`)
+        }
+    }
+    if (spaces[whereAm].type === `c`) {
+        if (playerRoll >= compRoll) {
             player1Points += spaces[whereAm].gainPoints
-        $(`.results`).text(`You succeeded!`)
-    } else {
-        $(`.results`).text(`Try Again`)
+            $(`.results`).text(`You succeeded!`)
+        }
+        if (playerRoll < compRoll) {
+            $(`.results`).text(`Try Again`)
+        }
     }
 })
+
 $(".dicePlayer1").text("Player 1 has " + player1Dice + " dice")
 $(".pointsPlayer1").text("Player 1 has " + player1Points + " points")
 $(".dicePlayer2").text("Player 2 has " + player2Dice + " dice")
 $(".pointsPlayer2").text("Player 2 has " + player2Points + " points")
-// }
 
 // constructor for players
 // players = {
