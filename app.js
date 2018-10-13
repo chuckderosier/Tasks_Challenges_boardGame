@@ -7,13 +7,15 @@ let player1Dice = 1
 let player1Points = 0
 let player2Dice = 1
 let player2Points = 0
-let computerDice
 let numDice
 let addPoints = 0
 let addDice = 0
 let rollNum = 0
 let moveDist = 0
 let youClicked = 0
+let compRoll
+let playerRoll
+let whereAm
 // create spaces with divs and classes
 let createDivs
 let createInDivs
@@ -29,29 +31,29 @@ let player2 = $(`#s1`).append(`<div class="play2"></div>`)
 spaces = {
     s1: {
         type: `free`,
-        dice: computerDice = 0,
+        dice: 0,
         gainDice: 0,
-        gainPoints: addPoints = 1,
+        gainPoints: 1,
         text: ``
     },
     s2: {
         type: `c`,
-        dice: computerDice = 1,
+        dice: 1,
         gainDice: 0,
-        gainPoints: addPoints = 1,
+        gainPoints: 1,
         text: ``
     },
     s3: {
         type: `t`,
-        dice: computerDice = 1,
-        gainDice: addDice = 1,
+        dice: 1,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s4: {
         type: `t`,
         dice: 2,
-        gainDice: addDice = 1,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
@@ -64,50 +66,50 @@ spaces = {
     },
     s6: {
         type: `c`,
-        dice: computerDice = 1,
+        dice: 1,
         gainDice: 0,
-        gainPoints: addPoints = 1,
+        gainPoints: 1,
         text: ``
     },
     s7: {
         type: `t`,
-        dice: computerDice = 1,
-        gainDice: addDice = 1,
+        dice: 1,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s8: {
         type: `c`,
-        dice: computerDice = 1,
+        dice: 1,
         gainDice: 0,
-        gainPoints: addPoints = 1,
+        gainPoints: 1,
         text: ``
     },
     s9: {
         type: `t`,
-        dice: computerDice = 2,
-        gainDice: addDice = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s10: {
         type: `c`,
-        dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s11: {
         type: `t`,
-        dice: computerDice = 2,
-        gainDice: addDice = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s12: {
         type: `c`,
-        dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
@@ -120,78 +122,78 @@ spaces = {
     },
     s14: {
         type: `t`,
-        dice: computerDice = 2,
-        gainDice: addDice = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s15: {
         type: `c`,
-        dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s16: {
         type: `t`,
-        dice: computerDice = 2,
-        gainDice: addDice = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s17: {
         type: `c`,
-        dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s18: {
         type: `c`,
-        dice: computerDice = 1,
+        dice: 1,
         gainDice: 0,
-        gainPoints: addPoints = 1,
+        gainPoints: 1,
         text: ``
     },
     s19: {
         type: `t`,
-        dice: computerDice = 1,
-        gainDice: addDice = 1,
+        dice: 1,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s20: {
         type: `c`,
-        dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s21: {
         type: `t`,
-        dice: computerDice = 2,
-        gainDice: addDice = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s22: {
         type: `c`,
-        dice: computerDice = 2,
-        gainDice: addpoints = 1,
+        dice: 2,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     },
     s23: {
         type: `c`,
-        dice: computerDice = 1,
+        dice: 1,
         gainDice: 0,
-        gainPoints: addPoints = 1,
+        gainPoints: 1,
         text: ``
     },
     s24: {
         type: `t`,
-        dice: computerDice = 1,
-        gainDice: addDice = 1,
+        dice: 1,
+        gainDice: 1,
         gainPoints: 0,
         text: ``
     }
@@ -209,8 +211,8 @@ for (let k = player1Dice; k < player1Dice; k++) {
 // display players points and dice
 $(".dicePlayer1").text("Player 1 has " + player1Dice + " dice")
 $(".pointsPlayer1").text("Player 1 has " + player1Points + " points")
-$(".dicePlayer2").text("Player 1 has " + player2Dice + " dice")
-$(".pointsPlayer2").text("Player 1 has " + player2Points + " points")
+$(".dicePlayer2").text("Player 2 has " + player2Dice + " dice")
+$(".pointsPlayer2").text("Player 2 has " + player2Points + " points")
 // players turn
 if (player1Points < 10 || player2Points < 10) {
     $(`.windowRoll`).text(`Player 1 turn`)
@@ -244,12 +246,15 @@ if (player1Points < 10 || player2Points < 10) {
             youClicked = youClicked + 1
         }
         if (youClicked == 1) {
-            let whereAm = document.querySelector(`.play1`).parentNode.id
-            let compDice = spaces[whereAm].dice
-            let compRoll = 0
-            let playerRoll = 0
+            // let whereAm = document.querySelector(`.play1`).parentNode.id
+            // let compDice = spaces[whereAm].dice
+            // let compRoll
+            // let playerRoll
             $(`.battle`).one(`click`, function() {
                 for (c = compDice; c < compDice.length; c++) {
+                    whereAm = document.querySelector(`.play1`).parentNode.id
+                    compDice = spaces[whereAm].dice
+                    console.log(compDice)
                     compRoll = Math.floor((Math.random() * 6) + 1)   
                 }
             $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
@@ -260,7 +265,7 @@ if (player1Points < 10 || player2Points < 10) {
             })
             if (playerRoll => compRoll) {
                 player1Points += spaces[whereAm].gainPoints
-                player1Dice += spaces[wherAm].gainDice
+                player1Dice += spaces[whereAm].gainDice
                 $(`.results`).text(`You beat the roll!!`)
             } else {
                 $(`.results`).text(`Try Again`)

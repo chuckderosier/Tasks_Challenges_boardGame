@@ -47,20 +47,18 @@ nav {
     background-color: white;
     border: none;
 }
-.roll {
+button {
     margin: 10px 0 10px 0;
 }
 .play1 {
     height: 20px;
     width: 20px;
-    margin: 5;
     background-color: black;
     border-radius: 10px;
 }
 .play2 {
     height: 20px;
     width: 20px;
-    margin: 5;
     background-color: black;
 }
 main {
@@ -84,7 +82,6 @@ div{
 #s1 {
     background-color: white;
     grid-area: s0;
-    content: "start";
 }
 #s2 {
     background-color: red;

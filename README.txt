@@ -4,5 +4,6 @@ Players move around the board rolling a 6 sided die, when they land on a square 
 A Link to the Deployed App
 Trello : https://trello.com/b/KeKzryt3/project
 Libraries: jQuery.min (library uploaded, not linked)
+wireframe: https://imgur.com/NJkyDfW
 A Link to any Wirefames or Mockups (or inline photos / screenshots will work too!) Libraries, etc: jQuery
 Version 2: more styling, actual game board image, the extra spaces I didn’t include, personalize players
