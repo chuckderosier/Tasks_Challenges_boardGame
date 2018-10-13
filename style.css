@@ -50,6 +50,9 @@ nav {
 button {
     margin: 10px 0 10px 0;
 }
+.windowRoll, .battleWindowC, .battleWindowP {
+    background-color: white;
+}
 .play1 {
     height: 20px;
     width: 20px;
