@@ -198,55 +198,55 @@ div{
     "is5 win win is10"
     "is6 is7 is8 is9"
 } */
-/* .is0 {
+/* #s25 {
     background-color: green;
     grid-area: is0;
 }
-.is1 {
+#s26 {
     background-color: purple;
     grid-area: is1;
 }
-.is2 {
+#s27 {
     background-color: orange;
     grid-area: is2;
 }
-.is3 {
+#s28 {
     background-color: brown;
     grid-area: is3;
 }
-.is4 {
+#s29 {
     background-color: purple;
     grid-area: is4;
 }
-.is5 {
+#s30 {
     background-color: brown;
     grid-area: is5;
 }
-.is6 {
+#s31 {
     background-color: green;
     grid-area: is6;
 }
-.is7 {
+#s32 {
     background-color: brown;
     grid-area: is7;
 }
-.is8 {
+#s33 {
     background-color: orange;
     grid-area: is8;
 }
-.is9 {
+#s34 {
     background-color: brown;
     grid-area: is9;
 }
-.is10 {
+#s35 {
     background-color: purple;
     grid-area: is10;
 }
-.is11 {
+#s36 {
     background-color: brown;
     grid-area: is11;
 }
-.path2 {
+#path2 {
     grid-row: span 2;
     grid-column: span 2;
 }

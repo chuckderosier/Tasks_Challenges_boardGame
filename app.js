@@ -259,8 +259,8 @@ if (player1Points < 10 || player2Points < 10) {
             $(`.battleWindowP`).text(`You rolled ` + playerRoll)
             })
             if (playerRoll => compRoll) {
-                playerPoints += spaces[whereAm].gainPoints
-                playerDice += spaces[wherAm].gainDice
+                player1Points += spaces[whereAm].gainPoints
+                player1Dice += spaces[wherAm].gainDice
                 $(`.results`).text(`You beat the roll!!`)
             } else {
                 $(`.results`).text(`Try Again`)
