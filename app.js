@@ -16,6 +16,7 @@ let youClicked = 0
 let compRoll
 let playerRoll
 let compDice = 1
+let dice = Math.floor((Math.random() * 6) + 1)
 // create spaces with divs and classes
 let createDivs
 let createInDivs
@@ -209,65 +210,69 @@ for (let k = player1Dice; k < player1Dice; k++) {
     rollNum = Math.floor((Math.random() * 6) + 1)
 }
 // display players points and dice
+
+// players turn
+let whereAm = document.querySelector(`.play1`).parentNode.id
+// if (player1Points < 10 || player2Points < 10) {
+$(`.windowRoll`).text(`Player 1 turn`)
+$(`.roll`).one(`click`, function () {
+    moveDist = dice
+    $(`.windowRoll`).text(`You rolled a ` + moveDist)
+    let spaceOn = $(`.play1`).parent().prop(`class`)
+    spaceOn = parseInt(spaceOn)
+    if (youClicked === 0) {
+        $(`.counter`).one(`click`, function () {
+            youClicked += 1
+            spaceOn += moveDist
+            if (spaceOn > 24) {
+                spaceOn = (24 - spaceOn) * -1
+                $(`.play1`).appendTo(`.` + spaceOn)
+            } else {
+                $(`.play1`).appendTo(`.` + spaceOn)
+            }
+            whereAm = document.querySelector(`.play1`).parentNode.id
+        })
+    }
+    if (youClicked === 0) {
+        $(`.clock`).one(`click`, function () {
+            youClicked += 1
+            spaceOn -= moveDist
+            if (spaceOn > 0) {
+                $(`.play1`).appendTo(`.` + spaceOn)
+            } else {
+                spaceOn = (24 + spaceOn)
+                $(`.play1`).appendTo(`.` + spaceOn)
+            }
+            whereAm = document.querySelector(`.play1`).parentNode.id
+        })
+    }
+    $(`.battle`).one(`click`, function () {
+        compDice = spaces[whereAm].dice
+        compRoll = dice * compDice
+        playerRoll = dice * player1Dice
+        $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
+        $(`.battleWindowP`).text(`You rolled ` + playerRoll)
+    })
+    if (spaces[whereAm].type = `t`) {
+        if (playerRoll <= compRoll)
+            player1Dice += spaces[whereAm].gainDice
+        $(`.results`).text(`You succeeded!`)
+    } else {
+        $(`.results`).text(`Try Again`)
+    }
+    if (spaces[whereAm].type = `c`) {
+        if (playerRoll => compRoll)
+            player1Points += spaces[whereAm].gainPoints
+        $(`.results`).text(`You succeeded!`)
+    } else {
+        $(`.results`).text(`Try Again`)
+    }
+})
 $(".dicePlayer1").text("Player 1 has " + player1Dice + " dice")
 $(".pointsPlayer1").text("Player 1 has " + player1Points + " points")
 $(".dicePlayer2").text("Player 2 has " + player2Dice + " dice")
 $(".pointsPlayer2").text("Player 2 has " + player2Points + " points")
-// players turn
-let whereAm = document.querySelector(`.play1`).parentNode.id
-if (player1Points < 10 || player2Points < 10) {
-    $(`.windowRoll`).text(`Player 1 turn`)
-    $(`.roll`).one(`click`, function () {
-        moveDist = Math.floor((Math.random() * 6) + 1)
-        $(`.windowRoll`).text(`You rolled a ` + moveDist)
-        let spaceOn = $(`.play1`).parent().prop(`class`)
-        spaceOn = parseInt(spaceOn)
-        if (youClicked === 0) {
-            $(`.counter`).one(`click`, function () {
-                youClicked += 1
-                spaceOn += moveDist
-                if (spaceOn > 24) {
-                    spaceOn = (24 - spaceOn) * -1
-                    $(`.play1`).appendTo(`.` + spaceOn)
-                } else {
-                    $(`.play1`).appendTo(`.` + spaceOn)
-                }
-                whereAm = document.querySelector(`.play1`).parentNode.id
-            }) 
-        }
-        if (youClicked === 0) {
-            $(`.clock`).one(`click`, function () {
-                youClicked += 1
-                spaceOn -= moveDist
-                if (spaceOn > 0) {
-                    $(`.play1`).appendTo(`.` + spaceOn)
-                } else {
-                    spaceOn = (24 + spaceOn)
-                    $(`.play1`).appendTo(`.` + spaceOn)
-                }
-                whereAm = document.querySelector(`.play1`).parentNode.id
-            })
-        }
-            $(`.battle`).one(`click`, function() {
-                compDice = spaces[whereAm].dice
-                for (c = compDice; c < compDice.length; c++) {
-                    compRoll = Math.floor((Math.random() * 6) + 1)   
-                }
-            $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
-                for (let p = player1Dice; p < player1Dice.length; p++) {
-                    playerRoll = Math.floor((Math.random() * 6) + 1)
-                }
-            $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-            })
-            if (playerRoll => compRoll) {
-                // player1Points += spaces[whereAm].gainPoints
-                // player1Dice += spaces[whereAm].gainDice
-                $(`.results`).text(`You beat the roll!!`)
-            } else {
-                $(`.results`).text(`Try Again`)
-            }
-    })
-}
+// }
 
 // constructor for players
 // players = {
