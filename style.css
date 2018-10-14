@@ -54,9 +54,8 @@ nav {
     background-color: white;
     border: none;
     padding: 2px;
-}
-.pointsPlayer2 {
-    border-bottom: 5px solid black;
+    width: 80%;
+    margin: 0 auto 0 auto;
 }
 button {
     margin: 5px 0 8px 0;
@@ -64,20 +63,16 @@ button {
 }
 .windowRoll, .battleWindowC, .battleWindowP {
     background-color: white;
+    width: 80%;
+    margin: 0 auto 0 auto;
 }
-.roll {
+.roll, .counter, .clock, .battle {
     background-color: yellow;
 }
 .windowRoll {
     width: 70%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto 3px auto;
     padding: 3px;
-}
-.counter, .clock {
-    background-color: orange;
-}
-.battle {
-    background-color: red;
 }
 .results {
     background-color: white;
