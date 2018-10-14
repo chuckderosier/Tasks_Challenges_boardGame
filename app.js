@@ -15,8 +15,7 @@ let youClicked = 0
 let compRoll
 let playerRoll
 let compDice = 1
-let dice = Math.floor((Math.random() * 6) + 1)
-let notFree
+let dice
 let whatType
 let turn = 1
 // let playDice
@@ -29,17 +28,14 @@ for (let i = 1; i < 25; i++) {
     $(createDivs).attr('id', `s` + [i])
     $(`main`).append(createDivs)
 }
-// create and place players on start
-let player1 = $(`#s1`).append(`<div class="play1"></div>`)
-let player2 = $(`#s1`).append(`<div class="play2"></div>`)
 // spaces pair values
 spaces = {
     s1: {
-        type: `free`,
+        type: `t`,
         dice: 0,
-        gainDice: 0,
+        gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `free die`
     },
     s2: {
         type: `c`,
@@ -119,10 +115,10 @@ spaces = {
         text: ``
     },
     s13: {
-        type: `free`,
-        dice: 0,
+        type: `c`,
+        dice: 3,
         gainDice: 0,
-        gainPoints: 0,
+        gainPoints: 1,
         text: ``
     },
     s14: {
@@ -208,6 +204,11 @@ $('.rules').click(function () {
     alert("—- The Goal — Get to the center of the board first. To get there, you have to overcome Challenges to earn Points and accomplish Tasks to earn Die.n/— Start — Player with the next birthday goes first. Each player begins at Start. Each Die you earn gives you one die to roll for use in completing Tasks or overcoming Challenges, explained below.n/—- Movement —- On your turn, roll to move around the board. You can move clockwise or counter-clockwise. You only play the spot on which you land./n—- Task Spaces —- blue spaces are 1 die, purple spaces are 2 dice, orange spaces are 3 dice —- When you land on a Task space the app will roll that number of dice as indicated the space. You roll a number all of your dice you’ve earned. If you roll lower than the total rolled for the Task you earn 1 Die when in outer loop or 2 Dice  when in inner loop to use on your next Task or Challenge. Obviously the more you Dice the harder it will be to accomplish Tasks but the easier it will be to overcome challenges. Tie rolls are successes./n—- Challenge Spaces —- red spaces are 1 die, pink spaces are 2 dice, brown spaces are 3 dice —- When you land on a Challenge space the app will roll that number of dice as indicated the space. You roll a number all of your dice you’ve earned. If you roll higher than the total rolled for the Challenge you earn 1 Point when in outer loop or 2 points when in inner loop. When you get 4 Points you may advance to the inner loop from the green space on the outer loop. When you get to 8 points you may enter the center space from the green space on the inner loop. Exact roll not necessary. You win.")
 }
 )
+// add text to spaces
+$(`#s1`).text(spaces.s1.text)
+// create and place players on start
+let player1 = $(`#s1`).append(`<div class="play1"></div>`)
+let player2 = $(`#s1`).append(`<div class="play2"></div>`)
 // display initial players points and dice
 $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
 $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
@@ -219,6 +220,7 @@ $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
 // playPoints = `playPoints` + turn
 // playPoints = new String(playPoints)
 function play() {
+    dice = Math.floor((Math.random() * 6) + 1)
     let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
     $(`.windowRoll`).text(`Player ` + turn + ` turn`)
     $(`.roll`).one(`click`, function () { // roll to move
@@ -255,7 +257,6 @@ function play() {
             })
         }
         // battle button
-        if (notFree !== `free`) {
             $(`.battle`).one(`click`, function () {
                 compDice = spaces[whereAm].dice
                 if (turn === 1) {
@@ -268,11 +269,12 @@ function play() {
                         if (playerRoll <= compRoll) {
                             playDice1 += spaces[whereAm].gainDice
                             $(`.results`).text(`You succeeded!`)
+                            play ()
                         }
                         if (playerRoll > compRoll) {
                             $(`.results`).text(`Try Again`)
+                            play ()
                         }
-                        play ()
                     }
                     if (whatType == `c`) {
                         if (playerRoll >= compRoll) {
@@ -297,11 +299,12 @@ function play() {
                         if (playerRoll <= compRoll) {
                             playDice2 += spaces[whereAm].gainDice
                             $(`.results`).text(`You succeeded!`)
+                            play ()
                         }
                         if (playerRoll > compRoll) {
                             $(`.results`).text(`Try Again`)
+                            play ()
                         }
-                        play ()
                     }
                     if (whatType == `c`) {
                         if (playerRoll >= compRoll) {
@@ -319,15 +322,11 @@ function play() {
                     }
                 }
                 youClicked = 0
-                console.log(turn)
                 $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
                 $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
                 $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
                 $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
             })
-        } else {
-            play ()
-        }
     })
 }
 $(`.start`).click(function () {
