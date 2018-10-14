@@ -21,7 +21,7 @@ nav {
 }
 .whiteSpace {
     padding: 2px 0;
-    color: white;
+    color: black;
     background-color: white;
 }
 .greenSpace {
@@ -184,81 +184,3 @@ div{
     background-color: blue;
     grid-area: s23;
 }
-/* .path1 {
-    grid-row: span 5;
-    grid-column: span 5;
-}
-.inLoop {
-    display: grid;
-    height: 94%;
-    width: 94%;
-    margin: 3%;
-    padding: 20 px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-row: auto / auto;
-    grid-column: auto / auto;
-    grid-template-areas:
-    "is3 is2 is1 is0"
-    "is4 win win is11"
-    "is5 win win is10"
-    "is6 is7 is8 is9"
-} */
-/* #s25 {
-    background-color: green;
-    grid-area: is0;
-}
-#s26 {
-    background-color: purple;
-    grid-area: is1;
-}
-#s27 {
-    background-color: orange;
-    grid-area: is2;
-}
-#s28 {
-    background-color: brown;
-    grid-area: is3;
-}
-#s29 {
-    background-color: purple;
-    grid-area: is4;
-}
-#s30 {
-    background-color: brown;
-    grid-area: is5;
-}
-#s31 {
-    background-color: green;
-    grid-area: is6;
-}
-#s32 {
-    background-color: brown;
-    grid-area: is7;
-}
-#s33 {
-    background-color: orange;
-    grid-area: is8;
-}
-#s34 {
-    background-color: brown;
-    grid-area: is9;
-}
-#s35 {
-    background-color: purple;
-    grid-area: is10;
-}
-#s36 {
-    background-color: brown;
-    grid-area: is11;
-}
-#path2 {
-    grid-row: span 2;
-    grid-column: span 2;
-}
-.win {
-    height: 60%;
-    width: 60%;
-    background-color: yellow;
-    margin: 15%;
-} */

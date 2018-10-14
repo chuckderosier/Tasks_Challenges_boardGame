@@ -18,8 +18,6 @@ let compDice = 1
 let dice
 let whatType
 let turn = 1
-// let playDice
-// let playerPoints
 // create spaces with divs and classes
 let createDivs
 for (let i = 1; i < 25; i++) {
@@ -42,161 +40,161 @@ spaces = {
         dice: 1,
         gainDice: 0,
         gainPoints: 1,
-        text: ``
+        text: `roll > 1 die`
     },
     s3: {
         type: `t`,
         dice: 1,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 1 die`
     },
     s4: {
         type: `t`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 2 dice`
     },
     s5: {
         type: `c`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll > 2`
     },
     s6: {
         type: `c`,
         dice: 1,
         gainDice: 0,
         gainPoints: 1,
-        text: ``
+        text: `roll > 1 die`
     },
     s7: {
         type: `t`,
         dice: 1,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 1 die`
     },
     s8: {
         type: `c`,
         dice: 1,
         gainDice: 0,
         gainPoints: 1,
-        text: ``
+        text: `roll > 1 die`
     },
     s9: {
         type: `t`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 2 dice`
     },
     s10: {
         type: `c`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll > 2 dice`
     },
     s11: {
         type: `t`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 2 dice`
     },
     s12: {
         type: `c`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll > 2 dice`
     },
     s13: {
         type: `c`,
         dice: 3,
         gainDice: 0,
         gainPoints: 1,
-        text: ``
+        text: `roll > 3 dice`
     },
     s14: {
         type: `t`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 2 dice`
     },
     s15: {
         type: `c`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll > 2 dice`
     },
     s16: {
         type: `t`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 2 dice`
     },
     s17: {
         type: `c`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll > 2 dice`
     },
     s18: {
         type: `c`,
         dice: 1,
         gainDice: 0,
         gainPoints: 1,
-        text: ``
+        text: `roll > 1 die`
     },
     s19: {
         type: `t`,
         dice: 1,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 1 die`
     },
     s20: {
         type: `c`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll > 2 dice`
     },
     s21: {
         type: `t`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 2 dice`
     },
     s22: {
         type: `c`,
         dice: 2,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll > 2 dice`
     },
     s23: {
         type: `c`,
         dice: 1,
         gainDice: 0,
         gainPoints: 1,
-        text: ``
+        text: `roll > 1 die`
     },
     s24: {
         type: `t`,
         dice: 1,
         gainDice: 1,
         gainPoints: 0,
-        text: ``
+        text: `roll < 1 die`
     }
 }
 // nav bar rules
@@ -204,8 +202,6 @@ $('.rules').click(function () {
     alert("—- The Goal — Get to the center of the board first. To get there, you have to overcome Challenges to earn Points and accomplish Tasks to earn Die.n/— Start — Player with the next birthday goes first. Each player begins at Start. Each Die you earn gives you one die to roll for use in completing Tasks or overcoming Challenges, explained below.n/—- Movement —- On your turn, roll to move around the board. You can move clockwise or counter-clockwise. You only play the spot on which you land./n—- Task Spaces —- blue spaces are 1 die, purple spaces are 2 dice, orange spaces are 3 dice —- When you land on a Task space the app will roll that number of dice as indicated the space. You roll a number all of your dice you’ve earned. If you roll lower than the total rolled for the Task you earn 1 Die when in outer loop or 2 Dice  when in inner loop to use on your next Task or Challenge. Obviously the more you Dice the harder it will be to accomplish Tasks but the easier it will be to overcome challenges. Tie rolls are successes./n—- Challenge Spaces —- red spaces are 1 die, pink spaces are 2 dice, brown spaces are 3 dice —- When you land on a Challenge space the app will roll that number of dice as indicated the space. You roll a number all of your dice you’ve earned. If you roll higher than the total rolled for the Challenge you earn 1 Point when in outer loop or 2 points when in inner loop. When you get 4 Points you may advance to the inner loop from the green space on the outer loop. When you get to 8 points you may enter the center space from the green space on the inner loop. Exact roll not necessary. You win.")
 }
 )
-// add text to spaces
-$(`#s1`).text(spaces.s1.text)
 // create and place players on start
 let player1 = $(`#s1`).append(`<div class="play1"></div>`)
 let player2 = $(`#s1`).append(`<div class="play2"></div>`)
@@ -215,10 +211,6 @@ $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
 $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
 $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
 // players turn
-// playDice = `playDice` + turn
-// playDice = new String(playDice)
-// playPoints = `playPoints` + turn
-// playPoints = new String(playPoints)
 function play() {
     dice = Math.floor((Math.random() * 6) + 1)
     let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
@@ -257,86 +249,78 @@ function play() {
             })
         }
         // battle button
-            $(`.battle`).one(`click`, function () {
-                compDice = spaces[whereAm].dice
-                if (turn === 1) {
-                    turn += 1
-                    compRoll = dice * compDice
-                    playerRoll = dice * playDice1
-                    $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
-                    $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-                    if (whatType == `t`) {
-                        if (playerRoll <= compRoll) {
-                            playDice1 += spaces[whereAm].gainDice
-                            $(`.results`).text(`You succeeded!`)
-                            play ()
-                        }
-                        if (playerRoll > compRoll) {
-                            $(`.results`).text(`Try Again`)
-                            play ()
-                        }
+        $(`.battle`).one(`click`, function () {
+            compDice = spaces[whereAm].dice
+            if (turn === 1) {
+                turn += 1
+                compRoll = dice * compDice
+                playerRoll = dice * playDice1
+                $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
+                $(`.battleWindowP`).text(`You rolled ` + playerRoll)
+                if (whatType == `t`) {
+                    if (playerRoll <= compRoll) {
+                        playDice1 += spaces[whereAm].gainDice
+                        $(`.results`).text(`You succeeded!`)
+                        play()
                     }
-                    if (whatType == `c`) {
-                        if (playerRoll >= compRoll) {
-                            playPoints1 += spaces[whereAm].gainPoints
-                            $(`.results`).text(`You succeeded!`)
-                            play ()
-                        }
-                        if (playerRoll < compRoll) {
-                            $(`.results`).text(`Try Again`)
-                            play ()
-                        }
-                        if (playPoints1 >= 10) {
-                            alert(`Player 1 WINS!!`)
-                        }
-                    }
-                } else {
-                    turn -= 1
-                    playerRoll = dice * playDice2
-                    $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
-                    $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-                    if (whatType == `t`) {
-                        if (playerRoll <= compRoll) {
-                            playDice2 += spaces[whereAm].gainDice
-                            $(`.results`).text(`You succeeded!`)
-                            play ()
-                        }
-                        if (playerRoll > compRoll) {
-                            $(`.results`).text(`Try Again`)
-                            play ()
-                        }
-                    }
-                    if (whatType == `c`) {
-                        if (playerRoll >= compRoll) {
-                            playPoints2 += spaces[whereAm].gainPoints
-                            $(`.results`).text(`You succeeded!`)
-                            play ()
-                        }
-                        if (playerRoll < compRoll) {
-                            $(`.results`).text(`Try Again`)
-                            play ()
-                        }
-                        if (playPoints2 >= 10) {
-                            alert(`Player 2 WINS!!`)
-                        }
+                    if (playerRoll > compRoll) {
+                        $(`.results`).text(`Try Again`)
+                        play()
                     }
                 }
-                youClicked = 0
-                $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
-                $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
-                $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
-                $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
-            })
+                if (whatType == `c`) {
+                    if (playerRoll >= compRoll) {
+                        playPoints1 += spaces[whereAm].gainPoints
+                        $(`.results`).text(`You succeeded!`)
+                        play()
+                    }
+                    if (playerRoll < compRoll) {
+                        $(`.results`).text(`Try Again`)
+                        play()
+                    }
+                    if (playPoints1 >= 10) {
+                        alert(`Player 1 WINS!!`)
+                    }
+                }
+            } else {
+                turn -= 1
+                playerRoll = dice * playDice2
+                $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
+                $(`.battleWindowP`).text(`You rolled ` + playerRoll)
+                if (whatType == `t`) {
+                    if (playerRoll <= compRoll) {
+                        playDice2 += spaces[whereAm].gainDice
+                        $(`.results`).text(`You succeeded!`)
+                        play()
+                    }
+                    if (playerRoll > compRoll) {
+                        $(`.results`).text(`Try Again`)
+                        play()
+                    }
+                }
+                if (whatType == `c`) {
+                    if (playerRoll >= compRoll) {
+                        playPoints2 += spaces[whereAm].gainPoints
+                        $(`.results`).text(`You succeeded!`)
+                        play()
+                    }
+                    if (playerRoll < compRoll) {
+                        $(`.results`).text(`Try Again`)
+                        play()
+                    }
+                    if (playPoints2 >= 10) {
+                        alert(`Player 2 WINS!!`)
+                    }
+                }
+            }
+            youClicked = 0
+            $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
+            $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
+            $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
+            $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
+        })
     })
 }
 $(`.start`).click(function () {
     play()
 })
-// constructor for players
-// players = {
-//     constructor () {
-//         this.name = ``;
-//         this.color = ``;
-//         this.shape = ``
-//     }
-// }
