@@ -256,8 +256,14 @@ function play() {
             if (turn === 1) {
                 for (let cr = 0; cr < compDice; cr++) {
                     compRoll += dice
+                    console.log(compRoll)
                 }
-                for (let pr = 0; pr < playDice1; pr++) {
+                if (turn = 1) {
+                    playDice = playDice1
+                } else {
+                    playDice = playDice2
+                }
+                for (let pr = 0; pr < playDice; pr++) {
                     playerRoll += dice
                 }
                 turn += 1
@@ -285,13 +291,8 @@ function play() {
                     }
                 }
             } else {
-                for (let cr = 0; cr < compDice; cr++) {
-                    compRoll += dice
-                }
-                for (let pr = 0; pr < playDice2; pr++) {
-                    playerRoll += dice
-                }
                 turn -= 1
+                playerRoll = dice * playDice2
                 $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
                 $(`.battleWindowP`).text(`You rolled ` + playerRoll)
                 if (whatType == `t`) {
