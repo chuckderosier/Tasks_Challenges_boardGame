@@ -8,6 +8,9 @@ body {
     grid-template-areas:
     "nav main" 
 }
+h3 {
+    margin: 1px;
+}
 div{
     border: black solid 2px;
 }
@@ -19,44 +22,67 @@ nav {
 .rules {
     margin: 0 0 10px 0;
 }
+#box {
+    margin: 0 auto 5px auto;
+    width: 80%;
+    padding: 1px 0;
+}
 .whiteSpace {
-    padding: 2px 0;
     color: black;
     background-color: white;
 }
 .greenSpace {
-    padding: 2px 0;
     color: white;
     background-color: green;
 }
 .blueSpace {
-    padding: 2px 0;
     color: white;
     background-color: blue;
 }
 .redSpace {
-    padding: 2px 0;
     color: white;
     background-color: red;
 }
 .pinkSpace {
-    padding: 2px 0;
     background-color: pink;
 }
 .purpleSpace {
-    padding: 2px 0;
     color: white;
     background-color: purple;
 }
 .dicePlayer1, .pointsPlayer1, .dicePlayer2, .pointsPlayer2 {
     background-color: white;
     border: none;
+    padding: 2px;
+}
+.pointsPlayer2 {
+    border-bottom: 5px solid black;
 }
 button {
-    margin: 10px 0 10px 0;
+    margin: 5px 0 8px 0;
+    border-color: black;
 }
 .windowRoll, .battleWindowC, .battleWindowP {
     background-color: white;
+}
+.roll {
+    background-color: yellow;
+}
+.windowRoll {
+    width: 70%;
+    margin: 0 auto 0 auto;
+    padding: 3px;
+}
+.counter, .clock {
+    background-color: orange;
+}
+.battle {
+    background-color: red;
+}
+.results {
+    background-color: white;
+    width: 75%;
+    margin: 0 auto 0 auto;
 }
 .play1 {
     height: 20px;

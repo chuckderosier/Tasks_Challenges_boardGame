@@ -253,7 +253,7 @@ function play() {
         // battle button
         $(`.battle`).one(`click`, function () {
             compDice = spaces[whereAm].dice
-            if (turn === 1) {
+            if (turn === 1) { // player one battle
                 for (let cr = 0; cr < compDice; cr++) {
                     compRoll += dice
                 }
@@ -264,11 +264,11 @@ function play() {
                 $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
                 $(`.battleWindowP`).text(`You rolled ` + playerRoll)
                 if (whatType == `t`) {
-                    if (playerRoll <= compRoll) {
+                    if (playerRoll <= compRoll) { // what happens to player 1 on task
                         playDice1 += spaces[whereAm].gainDice
                         $(`.results`).text(`You succeeded!`)
                     }
-                    if (playerRoll > compRoll) {
+                    if (playerRoll > compRoll) { // what happens to player 1 on challenge
                         $(`.results`).text(`Try Again`)
                     }
                 }
@@ -284,7 +284,7 @@ function play() {
                         alert(`Player 1 WINS!!`)
                     }
                 }
-            } else {
+            } else { // player 2 battle
                 for (let cr = 0; cr < compDice; cr++) {
                     compRoll += dice
                 }
@@ -294,7 +294,7 @@ function play() {
                 turn -= 1
                 $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
                 $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-                if (whatType == `t`) {
+                if (whatType == `t`) { // what happens to player on task
                     if (playerRoll <= compRoll) {
                         playDice2 += spaces[whereAm].gainDice
                         $(`.results`).text(`You succeeded!`)
@@ -303,7 +303,7 @@ function play() {
                         $(`.results`).text(`Try Again`)
                     }
                 }
-                if (whatType == `c`) {
+                if (whatType == `c`) { // what happens to player 2 on challenge
                     if (playerRoll >= compRoll) {
                         playPoints2 += spaces[whereAm].gainPoints
                         $(`.results`).text(`You succeeded!`)
@@ -316,6 +316,7 @@ function play() {
                     }
                 }
             }
+            // resets and score updates
             playerRoll = 0
             compRoll = 0
             youClicked = 0
@@ -323,7 +324,7 @@ function play() {
             $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
             $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
             $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
-            play ()
+            play() // continue game
         })
     })
 }
