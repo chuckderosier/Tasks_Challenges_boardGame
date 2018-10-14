@@ -210,13 +210,8 @@ $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
 $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
 $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
 $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
-// the logic
+// players turn
 function play() {
-    if (turn = 2) {
-        turn -= 1
-    } else {
-        turn += 1
-    }
     dice = Math.floor((Math.random() * 6) + 1)
     let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
     $(`.windowRoll`).text(`Player ` + turn + ` turn`)
@@ -258,40 +253,47 @@ function play() {
         // battle button
         $(`.battle`).one(`click`, function () {
             compDice = spaces[whereAm].dice
-            for (let cr = 0; cr < compDice; cr++) {
-                compRoll += dice
-            }
-            if (turn = 1) {
-                playDice = playDice1
-                playPoints = playPoints1
-            } else {
-                playDice = playDice2
-                playPoints = playPoints2
-            }
-            for (let pr = 0; pr < playDice; pr++) {
-                playerRoll += dice
-            }
-            $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
-            $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-            if (whatType == `t`) {
-                if (playerRoll <= compRoll) {
-                    playDice += spaces[whereAm].gainDice
-                    $(`.results`).text(`You succeeded!`)
+            if (turn === 1) {
+                for (let cr = 0; cr < compDice; cr++) {
+                    compRoll += dice
                 }
-                if (playerRoll > compRoll) {
-                    $(`.results`).text(`Try Again`)
+                if (turn = 1) {
+                    playDice = playDice1
+                    playPoints = playPoints1
+                } else {
+                    playDice = playDice2
+                    playPoints = playPoints2
                 }
-            }
-            if (whatType == `c`) {
-                if (playerRoll >= compRoll) {
-                    playPoints += spaces[whereAm].gainPoints
-                    $(`.results`).text(`You succeeded!`)
+                for (let pr = 0; pr < playDice; pr++) {
+                    playerRoll += dice
                 }
-                if (playerRoll < compRoll) {
-                    $(`.results`).text(`Try Again`)
+                turn += 1
+                $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
+                $(`.battleWindowP`).text(`You rolled ` + playerRoll)
+                if (whatType == `t`) {
+                    if (playerRoll <= compRoll) {
+                        playDice += spaces[whereAm].gainDice
+                        $(`.results`).text(`You succeeded!`)
+                        play()
+                    }
+                    if (playerRoll > compRoll) {
+                        $(`.results`).text(`Try Again`)
+                        play()
+                    }
                 }
-                if (playPoints >= 10) {
-                    alert(`Player 1 WINS!!`)
+                if (whatType == `c`) {
+                    if (playerRoll >= compRoll) {
+                        playPoints += spaces[whereAm].gainPoints
+                        $(`.results`).text(`You succeeded!`)
+                        play()
+                    }
+                    if (playerRoll < compRoll) {
+                        $(`.results`).text(`Try Again`)
+                        play()
+                    }
+                    if (playPoints >= 10) {
+                        alert(`Player 1 WINS!!`)
+                    }
                 }
             }
             playerRoll = 0
@@ -308,7 +310,6 @@ function play() {
             $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
             $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
             $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
-            play ()
         })
     })
 }
