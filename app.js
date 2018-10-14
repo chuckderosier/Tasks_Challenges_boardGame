@@ -2,10 +2,10 @@ $(function () { // run jQuery first
     console.log("jQuery is working")
 })
 // game play vars
-let player1Dice = 1
-let player1Points = 0
-let player2Dice = 1
-let player2Points = 0
+let playDice1 = 1
+let playPoints1 = 0
+let playDice2 = 1
+let playPoints2 = 0
 let numDice
 let addPoints = 0
 let addDice = 0
@@ -18,9 +18,11 @@ let compDice = 1
 let dice = Math.floor((Math.random() * 6) + 1)
 let notFree
 let whatType
+let turn = 1
+let playDice
+let playerPoints
 // create spaces with divs and classes
 let createDivs
-let createInDivs
 for (let i = 1; i < 25; i++) {
     let createDivs = document.createElement(`div`)
     $(createDivs).addClass([i])
@@ -207,46 +209,49 @@ $('.rules').click(function () {
 }
 )
 // display initial players points and dice
-$(".dicePlayer1").text("Player 1 has " + player1Dice + " dice")
-$(".pointsPlayer1").text("Player 1 has " + player1Points + " points")
-$(".dicePlayer2").text("Player 2 has " + player2Dice + " dice")
-$(".pointsPlayer2").text("Player 2 has " + player2Points + " points")
+$(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
+$(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
+$(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
+$(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
 // players turn
-function play () {
-let whereAm = document.querySelector(`.play1`).parentNode.id // find/set player location
-$(`.windowRoll`).text(`Player 1 turn`)
+playDice = `playDice` + turn
+playDice = new String(playDice)
+playPoints = `playPoints` + turn
+playPoints = new String(playPoints)
+let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
+console.log(whereAm)
+$(`.windowRoll`).text(`Player ` + turn + ` turn`)
 $(`.roll`).one(`click`, function () { // roll to move
     moveDist = dice
     $(`.windowRoll`).text(`You rolled a ` + moveDist)
-    let spaceOn = $(`.play1`).parent().prop(`class`)
+    let spaceOn = $(`.play` +turn).parent().prop(`class`)
     spaceOn = parseInt(spaceOn)
     if (youClicked === 0) {
-        $(`.counter`).click(function () {
+        $(`.counter`).click(function () { // move counter clockwise
             youClicked += 1
             spaceOn += moveDist
             if (spaceOn > 24) {
                 spaceOn = (24 - spaceOn) * -1
-                $(`.play1`).appendTo(`.` + spaceOn)
+                $(`.play` + turn).appendTo(`.` + spaceOn)
             } else {
-                $(`.play1`).appendTo(`.` + spaceOn)
+                $(`.play` + turn).appendTo(`.` + spaceOn)
             }
-            whereAm = document.querySelector(`.play1`).parentNode.id
+            whereAm = document.querySelector(`.play` + turn).parentNode.id
             whatType = spaces[whereAm].type
         })
     }
-    if (youClicked === 0) {
+    if (youClicked === 0) { // move clockwise
         $(`.clock`).click(function () {
             youClicked += 1
             spaceOn -= moveDist
             if (spaceOn > 0) {
-                $(`.play1`).appendTo(`.` + spaceOn)
+                $(`.play`+ turn).appendTo(`.` + spaceOn)
             } else {
                 spaceOn = (24 + spaceOn)
-                $(`.play1`).appendTo(`.` + spaceOn)
+                $(`.play` + turn).appendTo(`.` + spaceOn)
             }
-            whereAm = document.querySelector(`.play1`).parentNode.id
+            whereAm = document.querySelector(`.play` + turn).parentNode.id
             whatType = spaces[whereAm].type
-            console.log(`a` + whatType)
         })
     }
     // battle button
@@ -254,13 +259,12 @@ $(`.roll`).one(`click`, function () { // roll to move
     $(`.battle`).click(function () {
         compDice = spaces[whereAm].dice
         compRoll = dice * compDice
-        playerRoll = dice * player1Dice
+        playerRoll = dice * playDice
         $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
         $(`.battleWindowP`).text(`You rolled ` + playerRoll)
         if (whatType == `t`) {
-            console.log(`ttttt`)
             if (playerRoll <= compRoll) {
-                player1Dice += spaces[whereAm].gainDice
+                playDice += spaces[whereAm].gainDice
                 $(`.results`).text(`You succeeded!`)
             }
             if (playerRoll > compRoll) {
@@ -270,27 +274,30 @@ $(`.roll`).one(`click`, function () { // roll to move
         if (whatType == `c`) {
             console.log(`cccc`)
             if (playerRoll >= compRoll) {
-                player1Points += spaces[whereAm].gainPoints
+                playPoints += spaces[whereAm].gainPoints
                 $(`.results`).text(`You succeeded!`)
             }
             if (playerRoll < compRoll) {
                 $(`.results`).text(`Try Again`)
             }
-            if (player1Points >= 10) {
+            if (playPoints >= 10) {
                 alert(`You WIN!!`)
             }
         }
-        $(".dicePlayer1").text("Player 1 has " + player1Dice + " dice")
-        $(".pointsPlayer1").text("Player 1 has " + player1Points + " points")
-        $(".dicePlayer2").text("Player 2 has " + player2Dice + " dice")
-        $(".pointsPlayer2").text("Player 2 has " + player2Points + " points")
+        $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
+        $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
+        $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
+        $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
     })
     }
+    youClicked = 0
+    if (turn = 2) {
+        turn -= 1
+    } else {
+        turn += 1
+    }
 })
-}
-for (let turns = 1; turns < 3; turns++) {
-    play()
-}
+
 // constructor for players
 // players = {
 //     constructor () {
