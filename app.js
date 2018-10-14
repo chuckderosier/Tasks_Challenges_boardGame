@@ -19,8 +19,8 @@ let dice = Math.floor((Math.random() * 6) + 1)
 let notFree
 let whatType
 let turn = 1
-let playDice
-let playerPoints
+// let playDice
+// let playerPoints
 // create spaces with divs and classes
 let createDivs
 for (let i = 1; i < 25; i++) {
@@ -214,15 +214,15 @@ $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
 $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
 $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
 // players turn
-playDice = `playDice` + turn
-playDice = new String(playDice)
-playPoints = `playPoints` + turn
-playPoints = new String(playPoints)
+// playDice = `playDice` + turn
+// playDice = new String(playDice)
+// playPoints = `playPoints` + turn
+// playPoints = new String(playPoints)
 let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
-console.log(whereAm)
 $(`.windowRoll`).text(`Player ` + turn + ` turn`)
 $(`.roll`).one(`click`, function () { // roll to move
     moveDist = dice
+    console.log(turn)
     $(`.windowRoll`).text(`You rolled a ` + moveDist)
     let spaceOn = $(`.play` +turn).parent().prop(`class`)
     spaceOn = parseInt(spaceOn)
@@ -262,26 +262,51 @@ $(`.roll`).one(`click`, function () { // roll to move
         playerRoll = dice * playDice
         $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
         $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-        if (whatType == `t`) {
-            if (playerRoll <= compRoll) {
-                playDice += spaces[whereAm].gainDice
-                $(`.results`).text(`You succeeded!`)
+        if (turn === 1) {
+            if (whatType == `t`) {
+                if (playerRoll <= compRoll) {
+                    playDice1 += spaces[whereAm].gainDice
+                    $(`.results`).text(`You succeeded!`)
+                }
+                if (playerRoll > compRoll) {
+                    $(`.results`).text(`Try Again`)
+                }
             }
-            if (playerRoll > compRoll) {
-                $(`.results`).text(`Try Again`)
-            }
+            if (whatType == `c`) {
+                console.log(`cccc`)
+                if (playerRoll >= compRoll) {
+                    playPoints1 += spaces[whereAm].gainPoints
+                    $(`.results`).text(`You succeeded!`)
+                }
+                if (playerRoll < compRoll) {
+                    $(`.results`).text(`Try Again`)
+                }
+                if (playPoints1 >= 10) {
+                    alert(`You WIN!!`)
+                }
         }
-        if (whatType == `c`) {
-            console.log(`cccc`)
-            if (playerRoll >= compRoll) {
-                playPoints += spaces[whereAm].gainPoints
-                $(`.results`).text(`You succeeded!`)
+        } else {
+            if (whatType == `t`) {
+                if (playerRoll <= compRoll) {
+                    playDice1 += spaces[whereAm].gainDice
+                    $(`.results`).text(`You succeeded!`)
+                }
+                if (playerRoll > compRoll) {
+                    $(`.results`).text(`Try Again`)
+                }
             }
-            if (playerRoll < compRoll) {
-                $(`.results`).text(`Try Again`)
-            }
-            if (playPoints >= 10) {
-                alert(`You WIN!!`)
+            if (whatType == `c`) {
+                console.log(`cccc`)
+                if (playerRoll >= compRoll) {
+                    playPoints1 += spaces[whereAm].gainPoints
+                    $(`.results`).text(`You succeeded!`)
+                }
+                if (playerRoll < compRoll) {
+                    $(`.results`).text(`Try Again`)
+                }
+                if (playPoints >= 10) {
+                    alert(`You WIN!!`)
+                }
             }
         }
         $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
