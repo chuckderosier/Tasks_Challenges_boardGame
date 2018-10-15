@@ -5,4 +5,4 @@ A Link to the Deployed App: https://chuckderosier.github.io/Tasks_Challenges_boa
 Trello : https://trello.com/b/KeKzryt3/project
 Libraries: jQuery.min (library uploaded, not linked)
 wireframe: https://imgur.com/NJkyDfW
-Version 2: more styling, actual game board image, the extra spaces I didn’t include, personalize players
+Version 2: more styling, actual game board image, the extra spaces I didn’t include, personalize players, inner loop
