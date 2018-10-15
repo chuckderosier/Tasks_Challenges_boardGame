@@ -205,7 +205,7 @@ $('.rules').click(function () {
 // add text from object
 for (var space in spaces) {
     if (spaces.hasOwnProperty(space)) {
-    $(`#`+space).text(spaces[space].text)
+        $(`#` + space).text(spaces[space].text)
     }
 }
 // create and place players on start
@@ -222,11 +222,11 @@ function play() {
     let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
     $(`.windowRoll`).text(`Player ` + turn + ` turn`)
     $(`.roll`).one(`click`, function () { // roll to move
-        $(`.battleWindowC`).text(``)
+        $(`.battleWindowC`).text(``) // clear windows from last
         $(`.battleWindowP`).text(``)
         moveDist = dice
         $(`.windowRoll`).text(`You rolled a ` + moveDist)
-        let spaceOn = $(`.play` + turn).parent().prop(`class`)
+        let spaceOn = $(`.play` + turn).parent().prop(`class`) // get location of player
         spaceOn = parseInt(spaceOn)
         if (youClicked === 0) {
             $(`.counter`).one(`click`, function () { // move counter clockwise
