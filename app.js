@@ -324,6 +324,9 @@ function play() {
         })
     })
 }
-$(`.start`).click(function () {
+
+let startGame = $(`.start`)
+startGame.click(function () {
+    startGame.text(`RESTART`)
     play()
 })

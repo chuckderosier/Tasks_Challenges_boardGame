@@ -43,6 +43,12 @@ button {
     border-color: black;
     font-size: 16px;
     border-radius: 10px;
+    background-color: yellow;
+}
+button:hover {
+    font-size: 20px;
+    background-color: rgb(235,0,0);
+    color: white;
 }
 .counter {
     width: 135px;
@@ -51,9 +57,6 @@ button {
     background-color: white;
     width: 80%;
     margin: 0 auto 0 auto;
-}
-.roll, .counter, .clock, .battle {
-    background-color: yellow;
 }
 .windowRoll {
     width: 70%;
