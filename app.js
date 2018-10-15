@@ -303,7 +303,7 @@ function play() {
                         $(`.results`).text(`Try Again`)
                     }
                     if (playPoints >= 10) {
-                        alert(`Player ` + turn + `WINS!!`)
+                        $(`.win`).text(`Player `+ turn + ` WINS!!`)
                     }
                 }
             }
@@ -324,7 +324,6 @@ function play() {
         })
     })
 }
-
 let startGame = $(`.start`)
 startGame.click(function () {
     startGame.text(`RESTART`)

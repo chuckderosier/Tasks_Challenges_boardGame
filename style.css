@@ -85,6 +85,11 @@ button:hover {
     background-color: black;
     float: right;
 }
+.win {
+    font-size: 30px;
+    color: yellow;
+    margin: 0 auto 0 auto;
+}
 main {
     height: 600px;
     width: 600px;
