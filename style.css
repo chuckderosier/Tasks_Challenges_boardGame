@@ -49,6 +49,7 @@ button:hover {
     font-size: 20px;
     background-color: rgb(235,0,0);
     color: white;
+    box-shadow: 0 10px 5px 0 rgba(0,0,0,0.3), 0 15px 10px 0 rgba(0,0,0,0.1)
 }
 .counter {
     width: 135px;
@@ -79,8 +80,8 @@ button:hover {
     float: left;
 }
 .play2 {
-    height: 20px;
-    width: 20px;
+    width: 20;
+    height: 20;
     background-color: black;
     float: right;
 }
