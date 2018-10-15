@@ -37,7 +37,7 @@ nav {
 }
 .blueSpace {
     color: white;
-    background-color: blue;
+    background-color: rgb(100,100,255);
 }
 .redSpace {
     color: white;
@@ -56,6 +56,9 @@ nav {
     padding: 2px;
     width: 80%;
     margin: 0 auto 0 auto;
+}
+.dicePlayer1 {
+    margin: 10px auto 0 auto;
 }
 button {
     margin: 5px 0 8px 0;
@@ -79,9 +82,12 @@ button {
     width: 75%;
     margin: 0 auto 0 auto;
 }
-.play1 {
+.play1, .play2 {
     height: 20px;
     width: 20px;
+    margin: 3px;
+}
+.play1 {
     background-color: gray;
     border-radius: 10px;
     float: left;
@@ -110,6 +116,7 @@ main {
 div{
     border: black solid 2px;
     text-align: center;
+    padding: 3px;
 }
 #s1 {
     background-color: white;
@@ -120,7 +127,7 @@ div{
     grid-area: s1;
 }
 #s3 {
-    background-color: blue;
+    background-color: rgb(100,100,255);
     grid-area: s2;
 }
 #s4 {
@@ -136,7 +143,7 @@ div{
     grid-area: s5;
 }
 #s7 {
-    background-color: blue;
+    background-color: rgb(100,100,255);
     grid-area: s6;
 }
 #s8 {
@@ -184,11 +191,11 @@ div{
     grid-area: s17;
 }
 #s19 {
-    background-color: blue;
+    background-color: rgb(100,100,255);
     grid-area: s18;
 }
 #s20 {
-    background-color: blue;
+    background-color: rgb(100,100,255);
     grid-area: s19;
 }
 #s21 {
@@ -204,6 +211,6 @@ div{
     grid-area: s22;
 }
 #s24 {
-    background-color: blue;
+    background-color: rgb(100,100,255);
     grid-area: s23;
 }
