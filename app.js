@@ -218,121 +218,111 @@ $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
 $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
 // players turn
 function play() {
-    dice = Math.floor((Math.random() * 6) + 1)
-    let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
-    $(`.windowRoll`).text(`Player ` + turn + ` turn`)
-    $(`.roll`).one(`click`, function () { // roll to move
-        $(`.battleWindowC`).text(``) // clear windows from last
-        $(`.battleWindowP`).text(``)
-        moveDist = dice
-        $(`.windowRoll`).text(`You rolled a ` + moveDist)
-        let spaceOn = $(`.play` + turn).parent().prop(`class`) // get location of player
-        spaceOn = parseInt(spaceOn)
-        if (youClicked === 0) {
-            $(`.counter`).one(`click`, function () { // move counter clockwise
-                youClicked += 1
-                spaceOn += moveDist
-                if (spaceOn > 24) {
-                    spaceOn = (24 - spaceOn) * -1
-                    $(`.play` + turn).appendTo(`.` + spaceOn)
-                } else {
-                    $(`.play` + turn).appendTo(`.` + spaceOn)
-                }
-                whereAm = document.querySelector(`.play` + turn).parentNode.id
-                whatType = spaces[whereAm].type
-            })
+dice = Math.floor((Math.random() * 6) + 1)
+let whereAm = document.querySelector(`.play` + turn).parentNode.id // find/set player location
+$(`.windowRoll`).text(`Player ` + turn + ` turn`)
+$(`.roll`).one(`click`, function () { // roll to move
+    $(`.battleWindowC`).text(``) // clear windows from last
+    $(`.battleWindowP`).text(``)
+    moveDist = dice
+    $(`.windowRoll`).text(`You rolled a ` + moveDist)
+    let spaceOn = $(`.play` + turn).parent().prop(`class`) // get location of player
+    spaceOn = parseInt(spaceOn)
+    if (youClicked === 0) {
+        $(`.counter`).one(`click`, function () { // move counter clockwise
+            youClicked += 1
+            spaceOn += moveDist
+            if (spaceOn > 24) {
+                spaceOn = (24 - spaceOn) * -1
+                $(`.play` + turn).appendTo(`.` + spaceOn)
+            } else {
+                $(`.play` + turn).appendTo(`.` + spaceOn)
+            }
+            whereAm = document.querySelector(`.play` + turn).parentNode.id
+            whatType = spaces[whereAm].type
+        })
+    }
+    if (youClicked === 0) { // move clockwise
+        $(`.clock`).one(`click`, function () {
+            youClicked += 1
+            spaceOn -= moveDist
+            if (spaceOn > 0) {
+                $(`.play` + turn).appendTo(`.` + spaceOn)
+            } else {
+                spaceOn = (24 + spaceOn)
+                $(`.play` + turn).appendTo(`.` + spaceOn)
+            }
+            whereAm = document.querySelector(`.play` + turn).parentNode.id
+            whatType = spaces[whereAm].type
+        })
+    }
+    // battle button
+    $(`.battle`).one(`click`, function () {
+        if (turn = 1) {
+            playDice = playDice1
+            playPoints = playPoints1
+        } else {
+            playDice = playDice2
+            playPoints = playPoints2
         }
-        if (youClicked === 0) { // move clockwise
-            $(`.clock`).one(`click`, function () {
-                youClicked += 1
-                spaceOn -= moveDist
-                if (spaceOn > 0) {
-                    $(`.play` + turn).appendTo(`.` + spaceOn)
-                } else {
-                    spaceOn = (24 + spaceOn)
-                    $(`.play` + turn).appendTo(`.` + spaceOn)
-                }
-                whereAm = document.querySelector(`.play` + turn).parentNode.id
-                whatType = spaces[whereAm].type
-            })
-        }
-        // battle button
-        $(`.battle`).one(`click`, function () {
-            compDice = spaces[whereAm].dice
-            if (turn === 1) { // player one battle
-                for (let cr = 0; cr < compDice; cr++) {
-                    compRoll += dice
-                }
-                for (let pr = 0; pr < playDice1; pr++) {
-                    playerRoll += dice
-                }
-                turn += 1
-                $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
-                $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-                if (whatType == `t`) {
-                    if (playerRoll <= compRoll) { // what happens to player 1 on task
-                        playDice1 += spaces[whereAm].gainDice
-                        $(`.results`).text(`You succeeded!`)
-                    }
-                    if (playerRoll > compRoll) { // what happens to player 1 on challenge
-                        $(`.results`).text(`Try Again`)
+        compDice = spaces[whereAm].dice
+        if (turn === 1) { // player one battle
+            for (let cr = 0; cr < compDice; cr++) {
+                compRoll += dice
+            }
+            for (let pr = 0; pr < playDice; pr++) {
+                playerRoll += dice
+            }
+            $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
+            $(`.battleWindowP`).text(`You rolled ` + playerRoll)
+            if (whatType == `t`) {
+                if (playerRoll <= compRoll) { // what happens to player 1 on task
+                    playDice += spaces[whereAm].gainDice
+                    $(`.results`).text(`You succeeded!`)
+                    if (turn = 1) {
+                        playDice1 = playDice
+                    } else {
+                        playDice2 = playDice
                     }
                 }
-                if (whatType == `c`) {
-                    if (playerRoll >= compRoll) {
-                        playPoints1 += spaces[whereAm].gainPoints
-                        $(`.results`).text(`You succeeded!`)
-                    }
-                    if (playerRoll < compRoll) {
-                        $(`.results`).text(`Try Again`)
-                    }
-                    if (playPoints1 >= 10) {
-                        alert(`Player 1 WINS!!`)
-                    }
-                }
-            } else { // player 2 battle
-                for (let cr = 0; cr < compDice; cr++) {
-                    compRoll += dice
-                }
-                for (let pr = 0; pr < playDice2; pr++) {
-                    playerRoll += dice
-                }
-                turn -= 1
-                $(`.battleWindowC`).text(`Computer rolled ` + compRoll)
-                $(`.battleWindowP`).text(`You rolled ` + playerRoll)
-                if (whatType == `t`) { // what happens to player on task
-                    if (playerRoll <= compRoll) {
-                        playDice2 += spaces[whereAm].gainDice
-                        $(`.results`).text(`You succeeded!`)
-                    }
-                    if (playerRoll > compRoll) {
-                        $(`.results`).text(`Try Again`)
-                    }
-                }
-                if (whatType == `c`) { // what happens to player 2 on challenge
-                    if (playerRoll >= compRoll) {
-                        playPoints2 += spaces[whereAm].gainPoints
-                        $(`.results`).text(`You succeeded!`)
-                    }
-                    if (playerRoll < compRoll) {
-                        $(`.results`).text(`Try Again`)
-                    }
-                    if (playPoints2 >= 10) {
-                        alert(`Player 2 WINS!!`)
-                    }
+                if (playerRoll > compRoll) { // what happens to player 1 on challenge
+                    $(`.results`).text(`Try Again`)
                 }
             }
-            // resets and score updates
-            playerRoll = 0
-            compRoll = 0
-            youClicked = 0
-            $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
-            $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
-            $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
-            $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
-            play() // continue game
-        })
+            if (whatType == `c`) {
+                if (playerRoll >= compRoll) {
+                    playPoints += spaces[whereAm].gainPoints
+                    $(`.results`).text(`You succeeded!`)
+                    if (turn = 1) {
+                        playPoints1 = playPoints
+                    } else {
+                        playPoints2 = playPoints
+                    }
+                }
+                if (playerRoll < compRoll) {
+                    $(`.results`).text(`Try Again`)
+                }
+                if (playPoints >= 10) {
+                    alert(`Player ` + turn + `WINS!!`)
+                }
+            }
+        }
+        // resets and score updates
+        playerRoll = 0
+        compRoll = 0
+        youClicked = 0
+        $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
+        $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
+        $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
+        $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
+        if (turn === 2) {
+            turn -= 1
+        } else {
+            turn += 1
+        }
+        play() // continue game
     })
+})
 }
 $(`.start`).click(function () {
     play()
