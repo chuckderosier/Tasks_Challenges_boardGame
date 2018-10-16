@@ -216,6 +216,7 @@ $(".dicePlayer1").text("Player 1 has " + playDice1 + " dice")
 $(".pointsPlayer1").text("Player 1 has " + playPoints1 + " points")
 $(".dicePlayer2").text("Player 2 has " + playDice2 + " dice")
 $(".pointsPlayer2").text("Player 2 has " + playPoints2 + " points")
+//git test
 // players turn
 function play() {
     dice = Math.floor((Math.random() * 6) + 1)
