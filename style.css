@@ -30,7 +30,7 @@ h4, h5 {
     border: none;
     padding: 2px;
     width: 80%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
 }
 .dicePlayer1 {
     margin: 10px auto 0 auto;
@@ -57,7 +57,7 @@ button:hover {
 .windowRoll, .battleWindowC, .battleWindowP {
     background-color: white;
     width: 80%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
 }
 .windowRoll {
     width: 70%;
@@ -67,7 +67,7 @@ button:hover {
 .results {
     background-color: white;
     width: 75%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
 }
 .play1, .play2 {
     height: 20px;
@@ -88,7 +88,7 @@ button:hover {
 .win {
     font-size: 30px;
     color: yellow;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
 }
 main {
     height: 600px;
